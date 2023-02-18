@@ -37,3 +37,19 @@
      }
 
  }
+function dlic_appjs_embed() {
+   return '<div id="root"></div>';
+}
+function dlic_plugins_loaded() {
+	if(function_exists('add_shortcode')) {
+        add_shortcode( 'appjs-embed', 'dlic_appjs_embed' );
+    }
+}
+
+function dlic_enqueue_script() {
+    wp_enqueue_script( 'dlic-js-app', DLIC_JSAPP_PLUGIN_URL . 'apps/dlic-js-app/build/jsappembed.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'dlic-js-app-execute', DLIC_JSAPP_PLUGIN_URL . 'assets/js/execute-react-script.js', array(), '1.0.0', true );
+}
+
+add_action( 'wp_enqueue_scripts', 'dlic_enqueue_script' );
+add_action( 'plugins_loaded', 'dlic_plugins_loaded' );
