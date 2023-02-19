@@ -16,7 +16,7 @@ class Dlic_JSApp_Admin_Menu{
         add_action('admin_menu', array($this,'add_menu'));
 	}
     public function add_menu(){
-        $menupage = esc_html__('JS App', 'dlic-jsapp-embed');
+        $menupage = esc_html__('JS App Embed', 'dlic-jsapp-embed');
         add_menu_page($menupage, $menupage, 'manage_options', 'js-app-embed',array($this,'page_content') );
         add_submenu_page('my-menu', 'Submenu Page Title', 'Whatever You Want', 'manage_options', 'my-menu' );
     }

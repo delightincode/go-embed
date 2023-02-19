@@ -1,5 +1,5 @@
 {
-  "name": "dlic-js-app",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,8 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:default": "react-scripts build",
-    "build": "webpack --mode production",
+    "build": "react-scripts build",
+    "buildwp": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   }
 }

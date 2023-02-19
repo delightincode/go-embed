@@ -1,23 +1,28 @@
-var path = require('path');
+const webpack = require('webpack'); //to access built-in plugins
+const path = require('path');
+const package = require('./package.json');
+const appName = package.name;
+const pathArray = path.resolve(__dirname).split('/')
+const pathApp = pathArray[pathArray.length - 1];
 
 module.exports = {
   // dynamically set the env to prod or dev
   mode: process.env.NODE_ENV !== 'production' ? 'development' : 'production',
-  // file/s I want to run webpack on
+  // use our configred component file
   entry: {
     index: './src/wpComponent.js'
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'jsappembed.js', // name = index from the entry
-    library: 'jsappembed', // package name
-    libraryTarget: 'umd' // use umd to make it work within react, other values 'commonjs' and 'amd', 
+    filename: 'jsappembed.js', // embedded file use in WordPress page
+    library: 'jsappembed',
+    libraryTarget: 'umd' // use umd to make it work anywhere, other values 'commonjs' and 'amd', 
   },
-  // allow tree shaking
-  optimization: {
-    providedExports: true,
-    usedExports: true,
-  },
+  plugins: [
+    new webpack.DefinePlugin({
+      JS_APP_ID: JSON.stringify(pathApp), // use for multiple application
+    })
+  ],
   // loader
   module: {
     rules: [
@@ -68,6 +73,11 @@ module.exports = {
         ],
       },
     ]
+  },
+  // allow tree shaking
+  optimization: {
+    providedExports: true,
+    usedExports: true,
   },
   // don't include these packages in the production build, the host project should/must 
   // have the packages already
