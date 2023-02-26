@@ -36,13 +36,13 @@ if (is_admin() == true) {
 
 }
 
-function dlic_appjs_embed($atts) {
+function dlic_jsapp_embed($atts) {
     $appid = dashToCamelCase($atts['id']);
     return '<div id="' . $appid . '"></div><script src="' . DLIC_JSAPP_PLUGIN_URL . 'apps/' . $atts['id'] . '/build/jsappembed.js" async></script>';
 }
 function dlic_plugins_loaded() {
 	if(function_exists('add_shortcode')) {
-        add_shortcode( 'appjs-embed', 'dlic_appjs_embed' );
+        add_shortcode( 'jsapp-embed', 'dlic_jsapp_embed' );
     }
 }
 
