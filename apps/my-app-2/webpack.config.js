@@ -2,7 +2,7 @@ const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
 const package = require('./package.json');
 const appName = package.name;
-const pathArray = path.resolve(__dirname).split('/')
+const pathArray = path.resolve(__dirname).replace(/\\/g, '/').split('/');
 const pathApp = pathArray[pathArray.length - 1];
 
 module.exports = {

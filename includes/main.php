@@ -20,13 +20,18 @@ if (is_admin() == true) {
 
     function dlic_jsapp_admin_init(){
         /* CSS */
+        wp_register_style('mui-css', DLIC_JSAPP_PLUGIN_URL . 'assets/vendors/mui.min.css', null, "1.0.0");
         wp_register_style('admin-main-style', DLIC_JSAPP_PLUGIN_URL . 'assets/css/admin-main.css', null, "1.0.0");
 
         /* JS */
+        wp_register_script('pure-js', DLIC_JSAPP_PLUGIN_URL . 'assets/vendors/mui.min.js', null, "1.0.0");
     }
      
     function dlic_jsapp_admin_enqueue_scripts() {
+        wp_enqueue_style('mui-css');
         wp_enqueue_style('admin-main-style');
+
+        wp_enqueue_script('pure-js');
     }
 
 }
