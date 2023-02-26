@@ -17,13 +17,13 @@ class Dlic_JSApp_Admin_Menu{
 	}
     public function add_menu(){
         $menupage = esc_html__('JS App Embed', 'dlic-jsapp-embed');
-        add_menu_page($menupage, $menupage, 'manage_options', 'js-app-embed',array($this,'page_content') );
+        add_menu_page($menupage, $menupage, 'manage_options', 'js-app-embed', array($this,'page_content'), DLIC_JSAPP_LOGO);
         add_submenu_page('my-menu', 'Submenu Page Title', 'Whatever You Want', 'manage_options', 'my-menu' );
     }
     public function page_content(){?>
         <div class="dlic-jsapp__menupage">
             <div class="dlic-header-page">
-                JS APP Embed
+                <img alt='jsapp-embed' class="dlic-logo-img" src="<?php echo DLIC_JSAPP_LOGO; ?>">JS APP Embed
             </div>
             <div class="dlic-jsapp__container">
                 <div class="content">
