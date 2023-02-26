@@ -53,6 +53,9 @@ class Dlic_JSApp_Admin_Menu{
                         Like other JS Application, you can do this:
                         <ul>
                             <li>
+                                <code>npm install</code> to install node modules
+                            </li>
+                            <li>
                                 <code>npm run start</code> to start and develop the app
                             </li>
                             <li>
