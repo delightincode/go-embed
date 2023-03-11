@@ -52,7 +52,7 @@ class Dlic_JSApp_Admin_Menu{
                             <li>
                                 Edit package.json and add more script to build
                                 <ul>
-                                    <li><code>"wp:build": "webpack --config webpack.config.js",</code></li>
+                                    <li><code>"buildwp": "webpack --config webpack.config.js",</code></li>
                                 </ul>    
                             </li>
                         </ul>
@@ -68,7 +68,7 @@ class Dlic_JSApp_Admin_Menu{
                                 <code>npm run start</code> to start and develop the app
                             </li>
                             <li>
-                                <code>npm run wp:build</code> to build
+                                <code>npm run buildwp</code> to build
                             </li>
                         </ul>
                     </p>
