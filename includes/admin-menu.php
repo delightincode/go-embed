@@ -8,17 +8,12 @@
  */
 
 class Dlic_JSApp_Admin_Menu{
-    private $menupage = 'JS APP Embed';
-    public function __construct() {
-
-	}
     public function init() {
         add_action('admin_menu', array($this,'add_menu'));
 	}
     public function add_menu(){
-        $menupage = esc_html__('JS App Embed', 'dlic-jsapp-embed');
+        $menupage = esc_html__('JS App Embed', 'dlic-js-app-embed');
         add_menu_page($menupage, $menupage, 'manage_options', 'js-app-embed', array($this,'page_content'), DLIC_JSAPP_LOGO);
-        add_submenu_page('my-menu', 'Submenu Page Title', 'Whatever You Want', 'manage_options', 'my-menu' );
     }
     public function page_content(){?>
         <div class="dlic-jsapp__menupage">
@@ -27,27 +22,41 @@ class Dlic_JSApp_Admin_Menu{
             </div>
             <div class="dlic-jsapp__container">
                 <div class="content">
-
                     <h2 class="mui--text-headline">Get started</h2>
                     <p class="mui--text-body2">You can use your own React Appplication or our example in <code>wp-content/plugins/jsapp-embed/apps/my-app</code> 
                     </p>
                     <p class="mui--text-body2">
-                        We use <code>npx create-react-app</code> to create <code>my-app</code>, so you could do the same. After that, do the following step:
+                        We use <code>npx create-react-app</code> to create <code>my-app</code>, so you could do the same.
                     </p>
+                    <p class="mui--text-body2">In order to have your app integrated into WordPress, there are a few steps you need to follow:</p>
                     <p class="mui--text-body2">
-                        1. Install <code>webpack</code> and copy 2 main files from our example app to your app:
+                        <h4>1. Place your existing or create a new ReactJS app in</h4>
                         <ul>
-                            <li class="mui--text-body1"><code>webpack.config.js</code>: config webpack to build umd target</li>
-                            <li><code>wpComponent.js</code>: declare a global function to render React App</li>
+                            <li class="mui--text-body1"><code>wp-content/plugins/jsapp-embed/apps/wp-content/plugins/jsapp-embed/apps/</code></li>
                         </ul>
                     </p>
                     <p class="mui--text-body2">
-                        2. Edit package.json and add more script to build
+                        <h4>2. Setup the app</h4>
+                        <p class="mui--text-body2">You need a Module Bundler to build your app, in this case, you can use webpack, install it by running the command:</p>
                         <ul>
-                            <li><code>"wp:build": "webpack --config webpack.config.js",</code></li>
-                        </ul>    
+                            <li>
+                            <p class="mui--text-body2"><code>npm install webpack</code></p>
+                            </li>
+                            <li>
+                                Copy 2 files from our example app (<code>my-app</code>)  to your app:
+                                <ul>
+                                    <li class="mui--text-body1"><code>webpack.config.js</code>: config webpack to build umd target</li>
+                                    <li><code>wpComponent.js</code>: declare a global function to render React App</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Edit package.json and add more script to build
+                                <ul>
+                                    <li><code>"wp:build": "webpack --config webpack.config.js",</code></li>
+                                </ul>    
+                            </li>
+                        </ul>
                     </p>
-
                     <h2 class="mui--text-headline">Develop JS Appplication</h2>
                     <p class="mui--text-body2">
                         Like other JS Application, you can do this:
@@ -65,7 +74,7 @@ class Dlic_JSApp_Admin_Menu{
                     </p>
 
                     <h2 class="mui--text-headline">Usage</h2>
-                    <p>
+                    <p class="mui--text-body2">
                         We use the folder name is the unique id of each application.
                         <br>
                         To embed the application into WordPress page, copy this shortcode <br>
@@ -74,7 +83,12 @@ class Dlic_JSApp_Admin_Menu{
                         <br>
                         Let replace <code>my-app</code> by your application id.
                         <br>
-                        <em>Every time you re-build the React App, let refresh the WordPress page to see the updates</em>
+                        <br>
+                        <em>Notes:</em>
+                        <br>
+                        <em>- You will need to build the React App in order to see your changes.</em>
+                        <br>
+                        <em>- Every time you re-build the React App, let refresh the WordPress page to see the updates</em>
                     </p>
                 </div>
             </div>

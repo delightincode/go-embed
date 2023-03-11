@@ -17,7 +17,6 @@ if (is_admin() == true) {
     $admin_menu = new Dlic_JSApp_Admin_Menu();
     $admin_menu->init();
 
-
     function dlic_jsapp_admin_init(){
         /* CSS */
         wp_register_style('mui-css', DLIC_JSAPP_PLUGIN_URL . 'assets/vendors/mui.min.css', null, "1.0.0");
@@ -38,7 +37,7 @@ if (is_admin() == true) {
 
 function dlic_jsapp_embed($atts) {
     $appid = dashToCamelCase($atts['id']);
-    return '<div id="' . $appid . '"></div><script src="' . DLIC_JSAPP_PLUGIN_URL . 'apps/' . $atts['id'] . '/build/jsappembed.js" async></script>';
+    return '<div id="' . $appid . '"><code style="background: #ffc8b9;">Sorry but the App with id "'. $appid .'" has build error</code></div><script src="' . DLIC_JSAPP_PLUGIN_URL . 'apps/' . $atts['id'] . '/build/jsappembed.js" async></script>';
 }
 function dlic_plugins_loaded() {
 	if(function_exists('add_shortcode')) {
@@ -46,4 +45,20 @@ function dlic_plugins_loaded() {
     }
 }
 
+function js_settings_link( $links ) {
+	$url = esc_url( add_query_arg(
+		'page',
+		'js-app-embed',
+		get_admin_url() . 'admin.php'
+	) );
+	$settings_link = "<a href='$url'>" . __( 'Settings' ) . '</a>';
+
+	array_push(
+		$links,
+		$settings_link
+	);
+	return $links;
+}
+
 add_action( 'plugins_loaded', 'dlic_plugins_loaded' );
+add_filter( 'plugin_action_links_dlic-js-app-embed/dlic-js-app-embed.php', 'js_settings_link' );

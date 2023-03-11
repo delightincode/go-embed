@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       JS APP Embed
  * Plugin URI:        http://delightincode.com/
- * Description:       React Vue Javascript App embedded plugin into your existing WordPress sites.
+ * Description:       React VueJS Javascript App embedded plugin into your existing WordPress sites.
  * Version:           1.0.0
  * Author:            DelightinCode
  * Author URI:        delightincode.com
