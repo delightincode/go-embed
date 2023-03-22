@@ -21,7 +21,7 @@
  *
  * @since      1.0.0
  *
- * @package    dlic-js-app-embed
+ * @package    go-embed
  */
 
 // If uninstall not called from WordPress, then exit.

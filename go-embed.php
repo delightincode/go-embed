@@ -10,18 +10,18 @@
  *
  * @link
  * @since             1.0.0
- * @package           dlic-js-app-embed
+ * @package           go-embed
  *
  * @wordpress-plugin
- * Plugin Name:       JS APP Embed
+ * Plugin Name:       GoEmbed - JS APP Embed
  * Plugin URI:        http://delightincode.com/
- * Description:       React VueJS Javascript App embedded plugin into your existing WordPress sites.
+ * Description:       ReactJS - VueJS - Javascript App embedded into your existing WordPress sites.
  * Version:           1.0.0
  * Author:            DelightinCode
  * Author URI:        delightincode.com
  * License:
  * License URI:
- * Text Domain:       dlic-js-app-embed
+ * Text Domain:       dlic-go-embed
  * Domain Path:       /languages
  */
 
